@@ -107,6 +107,7 @@ def send_email(sender:str, receiver:str, password:str,smtp_server:str,smtp_port:
     msg['Subject'] = Header(f'Daily arXiv {today}', 'utf-8').encode()
 
     if smtp_server == 'smtp.qq.com':
+        print(smtp_server)
         server = smtplib.SMTP_SSL(smtp_server, smtp_port)
         server.login(sender, password)
         server.sendmail(sender, [receiver], msg.as_string())
